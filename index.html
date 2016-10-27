@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="practiceStyle.css">
+	
+	<script>
+	$(document).ready(function()
+	{
+
+	//-------------------------
+	// Change Button Style
+	//-------------------------
+	
+		$("#buttonSelect").change(function(){
+			$("#button").removeClass();
+			changeButtonStyle($(this).val());
+		});
+	
+		function changeButtonStyle(buttonSelectValue){
+			switch(buttonSelectValue)
+			{
+				case "Primary":
+					$("#button").addClass("btn-primary");
+					break;
+				case "Secondary":
+					$("#button").addClass("btn-secondary");
+					break;
+				case "Success":
+					$("#button").addClass("btn-success");
+					break;
+				case "Info":
+					$("#button").addClass("btn-info");
+					break;
+				case "Warning":
+					$("#button").addClass("btn-warning");
+					break;
+				case "Danger":
+					$("#button").addClass("btn-danger");
+					break;
+				default:
+					break;
+			}
+		}
+		
+	});
+	</script>
+
+</head>	
+<body>
+	<div class="container">
+	
+	<div class="leftcontent">
+		<button type="button" id="button">Button</button>
+		
+		<table id="table">
+		<tr>
+				<th>Column A</th>
+				<th>Column B</th>
+				<th>Column C</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+			</tr>
+		</table>
+		
+		<div id="radiobuttons">
+			<input type="radio" name="alpha" value="A">A</input><br>
+			<input type="radio" name="alpha" value="B">B</input><br>
+			<input type="radio" name="alpha" value="C">C</input><br>
+		</div>
+		
+		<input id="textbox"></input>
+		
+		<br>
+		<textarea id="textarea">This is a box full of text.</textarea>
+		
+		<p id="text">This is an area full of text.</p>
+	</div>
+	
+	<div class="rightcontent">
+		<select id="buttonSelect">
+			<option value="">Button</option>
+			<option value="Primary">Primary</option>
+			<option value="Secondary">Secondary</option>
+			<option value="Success">Success</option>
+			<option value="Info">Info</option>
+			<option value="Warning">Warning</option>
+			<option value="Danger">Danger</option>
+		</select>
+		<br>
+		
+		<select>
+			<option value="">Table</option>
+			<option value="BootstrapTable">Bootstrap Table</option>
+			<option value="InverseTable">Inverse Table</option>
+			<option value="StripedRows">Striped Rows</option>
+			<option value="BorderedTable">Bordered Table</option>
+			<option value="InverseBorderedTable">Inverse Bordered Table</option>
+			<option value="SmallTable">Small Table</option>
+		</select>
+		<br>
+		
+		<select>
+			<option value="">Radio</option>
+			<option value="SquareBoxes">Square boxes</option>
+			<option value="DifferentCheckMark">Different Check Mark</option> <script>/*Put something other than the standard check mark in here*/</script>
+			<option value="Beautify">Beautify</option>
+			<option value="Sexy">Sexy</option>
+			<option value="Funky">Funky</option>
+			<option value="ModelQuiz">Model Quiz</option>
+		</select>
+		<br>
+		
+		<select>
+			<option value="">textbox</option>
+		</select>
+		<br>
+		
+		<select>
+			<option value="">textarea</option>
+		</select>
+		<br>
+		
+		<select>
+			<option value="">text</option>
+		</select>
+		<br>
+	</div>
+	
+</div>
+</body>
+</html>
