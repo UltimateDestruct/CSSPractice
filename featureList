@@ -1,1 +1,2 @@
 - Change index.html to use bootstrap grids instead of 50% width divs.
+- Refactor the javascript to have a smaller, better designed function. Right now there is a lot of copy/pasting that could be solved by a better function.
