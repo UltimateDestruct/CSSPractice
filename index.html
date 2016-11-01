@@ -3,9 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 	<link rel="stylesheet" type="text/css" href="practiceStyle.css">
 	
 	<script>
@@ -45,7 +46,105 @@
 				default:
 					break;
 			}
-		}
+		};
+		
+	//-------------------------
+	// Change Table Style
+	//-------------------------
+	
+		$("#tableSelect").change(function(){
+			$("#table").removeClass();
+			changeTableStyle($(this).val());
+		});
+	
+		function changeTableStyle(tableSelectValue){
+			switch(tableSelectValue)
+			{
+				case "BootstrapTable":
+					$("#table").addClass("table");
+					break;
+				case "InverseTable":
+					$("#table").addClass("table table-inverse");
+					break;
+				case "StripedRows":
+					$("#table").addClass("table table-striped");
+					break;
+				case "BorderedTable":
+					$("#table").addClass("table table-bordered");
+					break;
+				case "InverseBorderedTable":
+					$("#table").addClass("table table-bordered table-inverse");
+					break;
+				case "SmallTable":
+					$("#table").addClass("table table-sm");
+					break;
+				default:
+					break;
+			}
+		};
+		
+	//-------------------------
+	// Change Text Box Style
+	//-------------------------
+	
+		$("#textboxSelect").change(function(){
+			$("#textbox").removeClass();
+			changeTextboxStyle($(this).val());
+		});
+	
+		function changeTextboxStyle(textboxSelectValue){
+			switch(textboxSelectValue)
+			{
+				case "Focused":
+					$("#textbox").addClass("inputFocusGlow");
+					break;
+				case "Success":
+					$("#textbox").addClass("glyphicon glyphicon-ok");
+					break;
+				case "Warning":
+					$("#textbox").addClass("glyphicon glyphicon-warning-sign");
+					break;
+				case "Error":
+					$("#textbox").addClass("glyphicon glyphicon-remove");
+					break;
+				case "RedText":
+					$("#textbox").addClass("inputRedText");
+					break;
+				case "BlueText":
+					$("#textbox").addClass("inputBlueText");
+					break;
+				case "YellowMatrix":
+					$("#textbox").addClass("inputYellowMatrix");
+					break;
+				default:
+					break;
+			}
+		};
+		
+	//-----------------------------
+	// Change Radiobutton Style
+	//-----------------------------
+	
+	//I'm going to skip implimenting radio button CSS stuff for now, because it appears to
+	//not be very well supported. I'll come back later and do some cool CSS stuff, but
+	//I couldn't find a whole lot to do as far as bootstrap goes... maybe it's just the
+	//version of bootstrap that I'm using?
+	
+		/*$("#radiobuttons").change(function(){
+			$("#alpha").removeClass();
+			changeRadioButtonStyle($(this).val());
+		});
+	
+		function changeRadioButtonStyle(radioButtonValue){
+			switch(radioButtonValue)
+			{
+				case "SquareBoxes":
+					$("#alpha").addClass("squareBoxes");
+					break;
+				default:
+					break;
+			}
+		};*/
 		
 	});
 	</script>
@@ -80,13 +179,13 @@
 			</tr>
 		</table>
 		
-		<div id="radiobuttons">
-			<input type="radio" name="alpha" value="A">A</input><br>
-			<input type="radio" name="alpha" value="B">B</input><br>
-			<input type="radio" name="alpha" value="C">C</input><br>
+		<div id="radiobuttons" class="radio-toolbar">
+			<input type="radio" id="radio1" name="alpha" value="A"></input><label for="radio1">A</label><br>
+			<input type="radio" id="radio2" name="alpha" value="B"></input><label for="radio1">B</label><br>
+			<input type="radio" id="radio3" name="alpha" value="C"></input><label for="radio1">C</label><br>
 		</div>
 		
-		<input id="textbox"></input>
+		<input type="text" id="textbox"></input>
 		
 		<br>
 		<textarea id="textarea">This is a box full of text.</textarea>
@@ -106,7 +205,7 @@
 		</select>
 		<br>
 		
-		<select>
+		<select id="tableSelect">
 			<option value="">Table</option>
 			<option value="BootstrapTable">Bootstrap Table</option>
 			<option value="InverseTable">Inverse Table</option>
@@ -128,13 +227,27 @@
 		</select>
 		<br>
 		
-		<select>
-			<option value="">textbox</option>
+		<select id="textboxSelect">
+			<option value="">Textbox</option>
+			<option value="Focused">Focused</option>
+			<option value="Success">Success</option>
+			<option value="Warning">Warning</option>
+			<option value="Error">Error</option>
+			<option value="RedText">Red Text</option>
+			<option value="BlueText">Blue Text</option>
+			<option value="YellowMatrix">Yellow Matrix</option> <script>/*yellow text with gray background*/</script>
+			<option value="DollaBillz">Dolla Billz</option> <script>/*Have a form look like: <in gray>$</in gray> 100 <in gray>.00</in gray>*/</script>
+			<option value="LargeInput">Large Input</option>
+			<option value="SmallInput">Small Input</option>
+			
 		</select>
 		<br>
 		
 		<select>
 			<option value="">textarea</option>
+			<script>/*Option that has some subtext that says "Type here", and then when you click on the text area it highlights
+			in light blue, but when focus is removed it goes back to white. As soon as you enter text into the textarea the
+			message goes away, but when you remove all text the message comes back.*/ </script>
 		</select>
 		<br>
 		
