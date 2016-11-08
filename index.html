@@ -87,34 +87,88 @@
 	// Change Text Box Style
 	//-------------------------
 	
-		$("#textboxSelect").change(function(){
+		$("#textboxSelect").change(function(){		
 			$("#textbox").removeClass();
+			$("#textboxDiv").removeClass();
+			$("#textbox").attr("title","");
+			$("#textboxGlyph").remove();
+			$("#dollarSign").remove();
+			$("#cents").remove();
 			changeTextboxStyle($(this).val());
+		});
+	
+		//For the 'Dolla Billz' style text box, only allow numbers. This also prevents copy/paste
+		//Any letters originally in the text box are filtered out when the text box style is changed
+		$("#textbox").keydown(function(e){
+			if($("#textboxSelect").val() == "DollaBillz")
+			{
+				// Allow: backspace, delete, tab, escape, enter and .
+				if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 110, 190]) !== -1 ||
+					 // Allow: Ctrl+A, Command+A
+					(e.keyCode === 65 && (e.ctrlKey === true || e.metaKey === true)) || 
+					 // Allow: home, end, left, right, down, up
+					(e.keyCode >= 35 && e.keyCode <= 40)) {
+						 // let it happen, don't do anything
+						 return;
+				}
+				// Ensure that it is a number and stop the keypress
+				if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+					e.preventDefault();
+				}
+			}
 		});
 	
 		function changeTextboxStyle(textboxSelectValue){
 			switch(textboxSelectValue)
 			{
 				case "Focused":
-					$("#textbox").addClass("inputFocusGlow");
+					$("#textbox").addClass("form-control inputFocusGlow");
 					break;
 				case "Success":
-					$("#textbox").addClass("glyphicon glyphicon-ok");
+					$("#textboxDiv").addClass("form-group has-success has-feedback");
+					$("#textbox").addClass("form-control");
+					$("#textbox").attr("placeholder","Success!");
+					$("#textboxDiv").append('<span id="textboxGlyph" class="glyphicon glyphicon-ok form-control-feedback"></span>');
 					break;
 				case "Warning":
-					$("#textbox").addClass("glyphicon glyphicon-warning-sign");
+					$("#textboxDiv").addClass("form-group has-warning has-feedback");
+					$("#textbox").addClass("form-control");
+					$("#textbox").attr("placeholder","Warning!");
+					$("#textboxDiv").append('<span id="textboxGlyph" class="glyphicon glyphicon-warning-sign form-control-feedback"></span>');
 					break;
 				case "Error":
-					$("#textbox").addClass("glyphicon glyphicon-remove");
+					$("#textboxDiv").addClass("form-group has-error has-feedback");
+					$("#textbox").addClass("form-control");
+					$("#textbox").attr("placeholder","Danger!");
+					$("#textboxDiv").append('<span id="textboxGlyph" class="glyphicon glyphicon-remove form-control-feedback"></span>');
 					break;
 				case "RedText":
-					$("#textbox").addClass("inputRedText");
+					$("#textbox").addClass("form-control inputRedText");
 					break;
 				case "BlueText":
-					$("#textbox").addClass("inputBlueText");
+					$("#textbox").addClass("form-control inputBlueText");
 					break;
 				case "YellowMatrix":
-					$("#textbox").addClass("inputYellowMatrix");
+					$("#textbox").addClass("form-control inputYellowMatrix");
+					break;
+				case "DollaBillz":
+					$("#textboxDiv").addClass("input-group");
+					$("#textboxDiv").prepend('<span id="dollarSign" class="input-group-addon">$</span>');
+					$("#textbox").addClass("dollaBillz form-control");
+					$("#textboxDiv").append('<span id="cents" class="input-group-addon">.00</span>');
+					$("#textbox").attr("title","Only numbers can currently be input into the text box.");
+					
+					//Change the text box so that only numbers can show
+					$replace = $("#textbox").val();
+					$replace = $replace.replace(/[^0-9\.]/g, '');
+					$("#textbox").val($replace);
+					
+					break;
+				case "LargeInput":
+					$("#textbox").addClass("form-control largeInput");
+					break;
+				case "SmallInput":
+					$("#textbox").addClass("form-control smallInput");
 					break;
 				default:
 					break;
@@ -185,7 +239,9 @@
 			<input type="radio" id="radio3" name="alpha" value="C"></input><label for="radio1">C</label><br>
 		</div>
 		
-		<input type="text" id="textbox"></input>
+		<div id="textboxDiv">
+			<input type="text" id="textbox"></input>
+		</div>
 		
 		<br>
 		<textarea id="textarea">This is a box full of text.</textarea>
@@ -235,7 +291,7 @@
 			<option value="Error">Error</option>
 			<option value="RedText">Red Text</option>
 			<option value="BlueText">Blue Text</option>
-			<option value="YellowMatrix">Yellow Matrix</option> <script>/*yellow text with gray background*/</script>
+			<option value="YellowMatrix">Yellow Matrix</option>
 			<option value="DollaBillz">Dolla Billz</option> <script>/*Have a form look like: <in gray>$</in gray> 100 <in gray>.00</in gray>*/</script>
 			<option value="LargeInput">Large Input</option>
 			<option value="SmallInput">Small Input</option>

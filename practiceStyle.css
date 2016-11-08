@@ -51,9 +51,39 @@ button, input, table, textarea, p {
 	background-color: #444444;
 	color: #ffd800;
 	border-radius: 7px;
+	font-size: 40px;
+	line-height: 40px;
+	height: 45px;
 }
 
 .inputYellowMatrix:focus{
 	outline: none;
-	border: 2px solid #ffd800;
+	border: 3px solid #ffd800;
+}
+
+.largeInput{
+	font-size: 60px;
+	line-height: 60px;
+	height: 65px;
+}
+
+.smallInput{
+	font-size: 10px;
+	line-height: 10px;
+	height: 15px;
+}
+
+.dollaBillz{
+	color: rgb(92, 184, 92);
+}
+
+.input-group-addon {
+    color: rgb(255, 255, 255);
+    background-color: rgb(92, 184, 92);
+    border-color: rgb(76, 174, 76);
+}
+
+/*Fixes a bug with the Group Add Ons not sizing correctly*/
+.input-group .form-control {
+    margin: 0px !important;
 }
