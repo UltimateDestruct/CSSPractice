@@ -1,2 +1,33 @@
 - Change index.html to use bootstrap grids instead of 50% width divs.
+
 - Refactor the javascript to have a smaller, better designed function. Right now there is a lot of copy/pasting that could be solved by a better function.
+
+- Add more button styles: 
+--white glass button 
+--black glass button
+--blue glass button
+--big red circular button
+--button with glyphicon in it
+
+- Add styles for text area: 
+--area background becomes blue with focus
+--background is glass, with interesting font inside
+--rotating colors in text area background
+
+- Add styles for text: 
+--Red color
+--blue color
+--Yellow Matrix (intereseting font here as well);
+--different font
+--large text
+--small text
+--bold
+--strikethrough
+--weak
+--rainbow font where each letter is a different color of the rainbow (split rainbow), make sure to give an interesting font
+--gradient color text (continuous rainbow)
+
+- Apply style to drop downs so that they don't look so plain
+
+- Make page reactive so that if there is not room on the right side for the drop-downs, that they shift over to the top and it becomes the top area instead of the right area?
+-- Basically just reactive web design???
