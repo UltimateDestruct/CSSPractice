@@ -1,2 +1,1 @@
-- Inverse tables are only working correctly in Bootstrap version 4 alpha, which breaks compatibility with other things I'm doing. The inverse tables should have CSS classes loaded that I define.
 - The lables for the radiobuttons are currently ugly colored boxes that I quickly implimented because I was having trouble with radiobuttons and CSS. The colored boxes should be removed and a similar CSS class should be created in a drop down.
