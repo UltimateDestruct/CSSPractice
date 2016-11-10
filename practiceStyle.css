@@ -23,7 +23,9 @@ button, input, table, textarea, p {
 	box-shadow:         -2px 2px 5px 2px #ccc;
 }
 
+/*--------------------*/
 /* Radiobutton styles*/
+/*--------------------*/
 .radio-toolbar input[type="radio"] {
 	margin-left: 20px;
 	margin-right: 20px;
@@ -34,7 +36,9 @@ button, input, table, textarea, p {
     padding:2px 10px;
 }
 
+/*-----------------*/
 /* Text Box styles*/
+/*----------------*/
 .inputFocusGlow{
 	border: 2px solid rgba(81, 203, 238, 1);
 }
@@ -86,4 +90,78 @@ button, input, table, textarea, p {
 /*Fixes a bug with the Group Add Ons not sizing correctly*/
 .input-group .form-control {
     margin: 0px !important;
+}
+
+/*--------------*/
+/* Table Styles */
+/*--------------*/
+
+.inverseTable{
+	color: #ffffff;
+	background-color: #000000;
+}
+
+.smallTable{
+	border: 1px solid black;
+}
+
+.bigPadding{
+	padding-top: 12px;
+    padding-bottom: 12px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.greenHeader{
+	background-color: #3DCC00;
+	color: #ffffff;
+}
+
+/*----------------*/
+/* Button Styles */
+/*--------------*/
+
+.glass{
+	position: relative;
+	display: inline-block;
+	padding: 15px 25px;
+	border-radius: 3px;
+	box-shadow: 0px 1px 4px -2px #333;
+	text-shadow: 0px -1px #333;
+}
+
+.glass:after{
+	content: '';
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: calc(100% - 4px);
+	height: 50%;
+	background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+}
+
+.whiteGlass{
+	background: #ffffff;
+	background-image: linear-gradient(#7F7F7F,#ffffff);
+	color: #000000;
+}
+
+.blackGlass{
+	background: #000000;
+	background-image: linear-gradient(#8E8E8E,#000000);
+	color: #ffffff;
+}
+
+.redGlass{
+	background: #ff0000;
+	background-image: linear-gradient(#820000,#ff0000);
+	color: #ffffff;
+}
+
+.redCircle{
+	padding: 40px 20px;
+	border-radius: 50%;
+	border: 1px solid;
+	background-color: #ff0000;
+	font-weight: bold;
 }

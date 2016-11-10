@@ -19,6 +19,7 @@
 	
 		$("#buttonSelect").change(function(){
 			$("#button").removeClass();
+			$("#button").text("Button");
 			changeButtonStyle($(this).val());
 		});
 	
@@ -43,6 +44,19 @@
 				case "Danger":
 					$("#button").addClass("btn-danger");
 					break;
+				case "Glass":
+					$("#button").addClass("glass whiteGlass");
+					break;
+				case "BlackGlass":
+					$("#button").addClass("glass blackGlass");
+					break;
+				case "RedGlass":
+					$("#button").addClass("glass redGlass");
+					break;
+				case "RedCircle":
+					$("#button").addClass("redCircle");
+					$("#button").text("Press Me!");
+					break;
 				default:
 					break;
 			}
@@ -54,6 +68,8 @@
 	
 		$("#tableSelect").change(function(){
 			$("#table").removeClass();
+			$("#table td").removeClass();
+			$("#table th").removeClass();
 			changeTableStyle($(this).val());
 		});
 	
@@ -62,21 +78,32 @@
 			{
 				case "BootstrapTable":
 					$("#table").addClass("table");
+					$("#table td").addClass("bigPadding");
+					$("#table th").addClass("bigPadding greenHeader");
 					break;
 				case "InverseTable":
-					$("#table").addClass("table table-inverse");
+					$("#table").addClass("table inverseTable");
+					$("#table td").addClass("bigPadding");
+					$("#table th").addClass("bigPadding");
 					break;
 				case "StripedRows":
 					$("#table").addClass("table table-striped");
+					$("#table td").addClass("bigPadding");
+					$("#table th").addClass("bigPadding greenHeader");
 					break;
 				case "BorderedTable":
 					$("#table").addClass("table table-bordered");
+					$("#table td").addClass("bigPadding");
+					$("#table th").addClass("bigPadding greenHeader");
 					break;
 				case "InverseBorderedTable":
-					$("#table").addClass("table table-bordered table-inverse");
+					$("#table").addClass("table table-bordered inverseTable");
+					$("#table td").addClass("bigPadding");
+					$("#table th").addClass("bigPadding");
 					break;
 				case "SmallTable":
-					$("#table").addClass("table table-sm");
+					$("#table").addClass("smallTable");
+					$("#table th").addClass("greenHeader");
 					break;
 				default:
 					break;
@@ -211,7 +238,7 @@
 		<button type="button" id="button">Button</button>
 		
 		<table id="table">
-		<tr>
+			<tr>
 				<th>Column A</th>
 				<th>Column B</th>
 				<th>Column C</th>
@@ -258,6 +285,10 @@
 			<option value="Info">Info</option>
 			<option value="Warning">Warning</option>
 			<option value="Danger">Danger</option>
+			<option value="Glass">Glass Button</option>
+			<option value="BlackGlass">Black Glass Button</option>
+			<option value="RedGlass">Red Glass Button</option>
+			<option value="RedCircle">Red Circle</option>
 		</select>
 		<br>
 		
