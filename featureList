@@ -3,10 +3,6 @@
 - Refactor the javascript to have a smaller, better designed function. Right now there is a lot of copy/pasting that could be solved by a better function.
 
 - Add more button styles: 
---white glass button 
---black glass button
---blue glass button
---big red circular button
 --button with glyphicon in it
 
 - Add styles for text area: 
