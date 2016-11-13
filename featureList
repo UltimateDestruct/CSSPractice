@@ -5,23 +5,8 @@
 - Add more button styles: 
 --button with glyphicon in it
 
-- Add styles for text area: 
---area background becomes blue with focus
---background is glass, with interesting font inside
---rotating colors in text area background
-
 - Add styles for text: 
---Red color
---blue color
---Yellow Matrix (intereseting font here as well);
---different font
---large text
---small text
---bold
---strikethrough
---weak
 --rainbow font where each letter is a different color of the rainbow (split rainbow), make sure to give an interesting font
---gradient color text (continuous rainbow)
 
 - Apply style to drop downs so that they don't look so plain
 
