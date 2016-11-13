@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="practiceStyle.css">
 	
 	<script>
+	
 	$(document).ready(function()
 	{
 
@@ -203,6 +204,132 @@
 		};
 		
 	//-----------------------------
+	// Change Textarea Style
+	//-----------------------------
+		
+		var $index = 0;
+		var $timer;
+		
+		//The Focus style loses its CSS if focus is taken out of the box
+		$("#textArea").focusin(function(){
+			if($("#textareaSelect").val() == "Focus")
+			{
+				$("#textArea").addClass("textAreaFocus");
+			}
+			if($("#textArea").val() == "")
+			{
+				$("#textArea").attr("placeholder","Type Here.");
+			}
+		});
+		
+		$("#textArea").focusout(function(){
+			if($("#textareaSelect").val() == "Focus")
+			{
+				$("#textArea").removeClass("textAreaFocus");
+			}
+			if($("#textArea").val() == "")
+			{
+				$("#textArea").attr("placeholder","");
+			}
+		});
+	
+		function changeTextAreaColor($changeColorIndex){
+			if($changeColorIndex == 0)
+			{
+				$("#textArea").removeClass("textAreaChangeColorGreen");
+				$("#textArea").addClass("textAreaChangeColorRed");
+				$index = $index + 1;
+			}
+			else if($changeColorIndex == 1)
+			{
+				$("#textArea").removeClass("textAreaChangeColorRed");
+				$("#textArea").addClass("textAreaChangeColorBlue");
+				$index = $index + 1;
+			}
+			else if($changeColorIndex == 2)
+			{
+				$("#textArea").removeClass("textAreaChangeColorBlue");
+				$("#textArea").addClass("textAreaChangeColorGreen");
+				$index = $index = 0;
+			}
+		}
+	
+		$("#textareaSelect").change(function(){
+			$("#textArea").removeClass();
+			clearInterval($timer);
+			changeTextAreaStyle($(this).val());
+		});
+	
+		function changeTextAreaStyle(textAreaValue){
+			switch(textAreaValue)
+			{
+				case "Focus":
+					$("#textArea").text("");
+					$("#textArea").attr("placeholder","Type Here.");
+					$("#textArea").addClass("form-control textAreaFocus");
+					break;
+				case "Glass":
+					$("#textArea").addClass("form-control textAreaGlass");
+					break;
+				case "RotatingColors":
+					$("#textArea").addClass("textAreaChangeColorGreen");
+					$timer = setInterval(function(){ changeTextAreaColor($index) }, 2000);
+					$("#textArea").addClass("form-control");
+					break;
+				default:
+					break;
+			}
+		};
+		
+	//-----------------------------
+	// Change Text Style
+	//-----------------------------
+	
+	$("#textSelect").change(function(){
+		$("#textToModify").removeClass();
+		changeTextStyle($(this).val());
+	});
+
+	function changeTextStyle(textSelectValue){
+		switch(textSelectValue)
+		{
+			case "RedText":
+				$("#textToModify").addClass("inputRedText");
+				break;
+			case "BlueText":
+				$("#textToModify").addClass("inputBlueText");
+				break;
+			case "YellowMatrix":
+				$("#textToModify").addClass("textYellowMatrix");
+				break;
+			case "DifferentFont":
+				$("#textToModify").addClass("courierNew");
+				break;
+			case "LargeText":
+				$("#textToModify").addClass("largeText");
+				break;
+			case "SmallText":
+				$("#textToModify").addClass("smallText");
+				break;
+			case "Bold":
+				$("#textToModify").addClass("bold");
+				break;
+			case "Strikethrough":
+				$("#textToModify").addClass("strikethrough");
+				break;
+			case "SplitRainbow":
+				$("#textToModify").addClass("splitRainbow");
+				break;
+			case "ContinuousRainbow":
+				$("#textToModify").addClass("continuousRainbow");
+				$("#textToModify").text("This is an area full of text. Look, it's got a rainbow looking gradient and everything!");
+				break;
+			default:
+				break;
+		}
+	};
+		
+	//-----------------------------
 	// Change Radiobutton Style
 	//-----------------------------
 	
@@ -271,9 +398,12 @@
 		</div>
 		
 		<br>
-		<textarea id="textarea">This is a box full of text.</textarea>
+		<textarea id="textArea">This is a box full of text.</textarea>
 		
-		<p id="text">This is an area full of text.</p>
+		<div id="textToModify">
+		<p>This is an area full of text.</p>
+		</div>
+		
 	</div>
 	
 	<div class="rightcontent">
@@ -323,23 +453,33 @@
 			<option value="RedText">Red Text</option>
 			<option value="BlueText">Blue Text</option>
 			<option value="YellowMatrix">Yellow Matrix</option>
-			<option value="DollaBillz">Dolla Billz</option> <script>/*Have a form look like: <in gray>$</in gray> 100 <in gray>.00</in gray>*/</script>
+			<option value="DollaBillz">Dolla Billz</option>
 			<option value="LargeInput">Large Input</option>
 			<option value="SmallInput">Small Input</option>
 			
 		</select>
 		<br>
 		
-		<select>
-			<option value="">textarea</option>
-			<script>/*Option that has some subtext that says "Type here", and then when you click on the text area it highlights
-			in light blue, but when focus is removed it goes back to white. As soon as you enter text into the textarea the
-			message goes away, but when you remove all text the message comes back.*/ </script>
+		<select id="textareaSelect">
+			<option value="">Textarea</option>
+			<option value="Focus">Focus</option>
+			<option value="Glass">Glass</option>
+			<option value="RotatingColors">Rotating Colors</option>
 		</select>
 		<br>
 		
-		<select>
-			<option value="">text</option>
+		<select id="textSelect">
+			<option value="">Text</option>
+			<option value="RedText">Red Text</option>
+			<option value="BlueText">Blue Text</option>
+			<option value="YellowMatrix">Yellow Matrix</option>
+			<option value="DifferentFont">Different Font</option>
+			<option value="LargeText">Large Text</option>
+			<option value="SmallText">Small Text</option>
+			<option value="Bold">Bold</option>
+			<option value="Strikethrough">Strikethrough</option>
+			<option value="SplitRainbow">Split Rainbow</option>
+			<option value="ContinuousRainbow">Continuous Rainbow</option>
 		</select>
 		<br>
 	</div>
