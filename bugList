@@ -1,1 +1,3 @@
-- The lables for the radiobuttons are currently ugly colored boxes that I quickly implimented because I was having trouble with radiobuttons and CSS. The colored boxes should be removed and a similar CSS class should be created in a drop down.
+- Get radiobuttons working
+
+- There is a little bit of white text to the left size, make that go away
