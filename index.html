@@ -58,6 +58,10 @@
 					$("#button").addClass("redCircle");
 					$("#button").text("Press Me!");
 					break;
+				case "GlyphIcon":
+					$("#button").addClass("glyphicon glyphicon-star-empty buttonGlyphIcon");
+					$("#button").text("");
+					break;
 				default:
 					break;
 			}
@@ -285,8 +289,49 @@
 	// Change Text Style
 	//-----------------------------
 	
+	function fnc_splitRainbow(){
+
+		$originalText = $("#textToModify").text();
+		$newText = "";
+		
+		for($counter=0;$counter<$originalText.length;$counter++)
+		{	
+			if($counter % 7 === 0)
+			{
+				$newText += "<span style='color:red'>" + $originalText.charAt($counter) + "</span>";
+			}
+			else if($counter % 7 === 1)
+			{
+				$newText += "<span style='color:orange'>" + $originalText.charAt($counter) + "</span>";
+			}
+			else if($counter % 7 === 2)
+			{
+				$newText += "<span style='color:yellow'>" + $originalText.charAt($counter) + "</span>";
+			}
+			else if($counter % 7 === 3)
+			{
+				$newText += "<span style='color:green'>" + $originalText.charAt($counter) + "</span>";
+			}
+			else if($counter % 7 === 4)
+			{
+				$newText += "<span style='color:blue'>" + $originalText.charAt($counter) + "</span>";
+			}
+			else if($counter % 7 === 5)
+			{
+				$newText += "<span style='color:indgo'>" + $originalText.charAt($counter) + "</span>";
+			}
+			else if($counter % 7 === 6)
+			{
+				$newText += "<span style='color:violet'>" + $originalText.charAt($counter) + "</span>";
+			}
+		}
+		
+		$("#textToModify").html($newText);
+	}
+	
 	$("#textSelect").change(function(){
 		$("#textToModify").removeClass();
+		$("#textToModify").html("This is an area full of text.");
 		changeTextStyle($(this).val());
 	});
 
@@ -319,6 +364,7 @@
 				break;
 			case "SplitRainbow":
 				$("#textToModify").addClass("splitRainbow");
+				fnc_splitRainbow();
 				break;
 			case "ContinuousRainbow":
 				$("#textToModify").addClass("continuousRainbow");
@@ -329,16 +375,11 @@
 		}
 	};
 		
-	//-----------------------------
+	/*//-----------------------------
 	// Change Radiobutton Style
 	//-----------------------------
 	
-	//I'm going to skip implimenting radio button CSS stuff for now, because it appears to
-	//not be very well supported. I'll come back later and do some cool CSS stuff, but
-	//I couldn't find a whole lot to do as far as bootstrap goes... maybe it's just the
-	//version of bootstrap that I'm using?
-	
-		/*$("#radiobuttons").change(function(){
+		$("#radiobuttons").change(function(){
 			$("#alpha").removeClass();
 			changeRadioButtonStyle($(this).val());
 		});
@@ -347,7 +388,7 @@
 			switch(radioButtonValue)
 			{
 				case "SquareBoxes":
-					$("#alpha").addClass("squareBoxes");
+					$("#alpha").addClass("");
 					break;
 				default:
 					break;
@@ -387,11 +428,15 @@
 			</tr>
 		</table>
 		
-		<div id="radiobuttons" class="radio-toolbar">
+		<script>
+		/*http://code.stephenmorley.org/html-and-css/styling-checkboxes-and-radio-buttons
+		
+		<div id="radiobuttons" class="input-group">
 			<input type="radio" id="radio1" name="alpha" value="A"></input><label for="radio1">A</label><br>
-			<input type="radio" id="radio2" name="alpha" value="B"></input><label for="radio1">B</label><br>
-			<input type="radio" id="radio3" name="alpha" value="C"></input><label for="radio1">C</label><br>
-		</div>
+			<input type="radio" id="radio2" name="alpha" value="B"></input><label for="radio2">B</label><br>
+			<input type="radio" id="radio3" name="alpha" value="C"></input><label for="radio3">C</label><br>
+		</div>*/
+		</script>
 		
 		<div id="textboxDiv">
 			<input type="text" id="textbox"></input>
@@ -406,80 +451,84 @@
 		
 	</div>
 	
-	<div class="rightcontent">
-		<select id="buttonSelect">
-			<option value="">Button</option>
-			<option value="Primary">Primary</option>
-			<option value="Secondary">Secondary</option>
-			<option value="Success">Success</option>
-			<option value="Info">Info</option>
-			<option value="Warning">Warning</option>
-			<option value="Danger">Danger</option>
-			<option value="Glass">Glass Button</option>
-			<option value="BlackGlass">Black Glass Button</option>
-			<option value="RedGlass">Red Glass Button</option>
-			<option value="RedCircle">Red Circle</option>
+	<div class="rightcontent">	
+	
+		<select id="buttonSelect" class="dropdown">
+			<option class="dropdown-content" class="dropdown-content" value="">Button</option>
+			<option class="dropdown-content" class="dropdown-content" value="Primary">Primary</option>
+			<option class="dropdown-content" class="dropdown-content" value="Secondary">Secondary</option>
+			<option class="dropdown-content" class="dropdown-content" value="Success">Success</option>
+			<option class="dropdown-content" class="dropdown-content" value="Info">Info</option>
+			<option class="dropdown-content" class="dropdown-content" value="Warning">Warning</option>
+			<option class="dropdown-content" class="dropdown-content" value="Danger">Danger</option>
+			<option class="dropdown-content" class="dropdown-content" value="Glass">Glass Button</option>
+			<option class="dropdown-content" class="dropdown-content" value="BlackGlass">Black Glass Button</option>
+			<option class="dropdown-content" class="dropdown-content" value="RedGlass">Red Glass Button</option>
+			<option class="dropdown-content" class="dropdown-content" value="RedCircle">Red Circle</option>
+			<option class="dropdown-content" class="dropdown-content" value="GlyphIcon">Glyph Icon</option>
 		</select>
 		<br>
 		
-		<select id="tableSelect">
-			<option value="">Table</option>
-			<option value="BootstrapTable">Bootstrap Table</option>
-			<option value="InverseTable">Inverse Table</option>
-			<option value="StripedRows">Striped Rows</option>
-			<option value="BorderedTable">Bordered Table</option>
-			<option value="InverseBorderedTable">Inverse Bordered Table</option>
-			<option value="SmallTable">Small Table</option>
+		<select id="tableSelect" class="dropdown">
+			<option class="dropdown-content" value="">Table</option>
+			<option class="dropdown-content" value="BootstrapTable">Bootstrap Table</option>
+			<option class="dropdown-content" value="InverseTable">Inverse Table</option>
+			<option class="dropdown-content" value="StripedRows">Striped Rows</option>
+			<option class="dropdown-content" value="BorderedTable">Bordered Table</option>
+			<option class="dropdown-content" value="InverseBorderedTable">Inverse Bordered Table</option>
+			<option class="dropdown-content" value="SmallTable">Small Table</option>
 		</select>
 		<br>
 		
-		<select>
-			<option value="">Radio</option>
-			<option value="SquareBoxes">Square boxes</option>
-			<option value="DifferentCheckMark">Different Check Mark</option> <script>/*Put something other than the standard check mark in here*/</script>
-			<option value="Beautify">Beautify</option>
-			<option value="Sexy">Sexy</option>
-			<option value="Funky">Funky</option>
-			<option value="ModelQuiz">Model Quiz</option>
+		<script>
+		/*<select>
+			<option class="dropdown-content" value="">Radio</option>
+			<option class="dropdown-content" value="SquareBoxes">Square boxes</option>
+			<option class="dropdown-content" value="DifferentCheckMark">Different Check Mark</option> //Put something other than the standard check mark in here
+			<option class="dropdown-content" value="Beautify">Beautify</option>
+			<option class="dropdown-content" value="Sexy">Sexy</option>
+			<option class="dropdown-content" value="Funky">Funky</option>
+			<option class="dropdown-content" value="ModelQuiz">Model Quiz</option>
 		</select>
-		<br>
+		<br>*/
+		</script>
 		
-		<select id="textboxSelect">
-			<option value="">Textbox</option>
-			<option value="Focused">Focused</option>
-			<option value="Success">Success</option>
-			<option value="Warning">Warning</option>
-			<option value="Error">Error</option>
-			<option value="RedText">Red Text</option>
-			<option value="BlueText">Blue Text</option>
-			<option value="YellowMatrix">Yellow Matrix</option>
-			<option value="DollaBillz">Dolla Billz</option>
-			<option value="LargeInput">Large Input</option>
-			<option value="SmallInput">Small Input</option>
+		<select id="textboxSelect" class="dropdown">
+			<option class="dropdown-content" value="">Textbox</option>
+			<option class="dropdown-content" value="Focused">Focused</option>
+			<option class="dropdown-content" value="Success">Success</option>
+			<option class="dropdown-content" value="Warning">Warning</option>
+			<option class="dropdown-content" value="Error">Error</option>
+			<option class="dropdown-content" value="RedText">Red Text</option>
+			<option class="dropdown-content" value="BlueText">Blue Text</option>
+			<option class="dropdown-content" value="YellowMatrix">Yellow Matrix</option>
+			<option class="dropdown-content" value="DollaBillz">Dolla Billz</option>
+			<option class="dropdown-content" value="LargeInput">Large Input</option>
+			<option class="dropdown-content" value="SmallInput">Small Input</option>
 			
 		</select>
 		<br>
 		
-		<select id="textareaSelect">
-			<option value="">Textarea</option>
-			<option value="Focus">Focus</option>
-			<option value="Glass">Glass</option>
-			<option value="RotatingColors">Rotating Colors</option>
+		<select id="textareaSelect" class="dropdown">
+			<option class="dropdown-content" value="">Textarea</option>
+			<option class="dropdown-content" value="Focus">Focus</option>
+			<option class="dropdown-content" value="Glass">Glass</option>
+			<option class="dropdown-content" value="RotatingColors">Rotating Colors</option>
 		</select>
 		<br>
 		
-		<select id="textSelect">
-			<option value="">Text</option>
-			<option value="RedText">Red Text</option>
-			<option value="BlueText">Blue Text</option>
-			<option value="YellowMatrix">Yellow Matrix</option>
-			<option value="DifferentFont">Different Font</option>
-			<option value="LargeText">Large Text</option>
-			<option value="SmallText">Small Text</option>
-			<option value="Bold">Bold</option>
-			<option value="Strikethrough">Strikethrough</option>
-			<option value="SplitRainbow">Split Rainbow</option>
-			<option value="ContinuousRainbow">Continuous Rainbow</option>
+		<select id="textSelect" class="dropdown" style="margin-bottom: 20px;">
+			<option class="dropdown-content" value="">Text</option>
+			<option class="dropdown-content" value="RedText">Red Text</option>
+			<option class="dropdown-content" value="BlueText">Blue Text</option>
+			<option class="dropdown-content" value="YellowMatrix">Yellow Matrix</option>
+			<option class="dropdown-content" value="DifferentFont">Different Font</option>
+			<option class="dropdown-content" value="LargeText">Large Text</option>
+			<option class="dropdown-content" value="SmallText">Small Text</option>
+			<option class="dropdown-content" value="Bold">Bold</option>
+			<option class="dropdown-content" value="Strikethrough">Strikethrough</option>
+			<option class="dropdown-content" value="SplitRainbow">Split Rainbow</option>
+			<option class="dropdown-content" value="ContinuousRainbow">Continuous Rainbow</option>
 		</select>
 		<br>
 	</div>

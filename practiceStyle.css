@@ -5,28 +5,61 @@ button, input, table, textarea, p {
 	margin-right: 20px;
 }
 
-.leftcontent{
-	float:left; 
-	width:45%;
-	padding-right:5%;
-	-webkit-box-shadow: -2px 2px 5px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-	-moz-box-shadow:    -2px 2px 5px 2px #ccc;  /* Firefox 3.5 - 3.6 */
-	box-shadow:         -2px 2px 5px 2px #ccc;
+@media only screen and (max-width: 426px) {
+	.rightcontent{
+		position: absolute;
+		top: 0px;
+		z-index: 999;
+		height:200px;
+		
+		width:100%;
+		padding-left:5%;
+		-webkit-box-shadow: -2px 2px 5px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+		-moz-box-shadow:    -2px 2px 5px 2px #ccc;  /* Firefox 3.5 - 3.6 */
+		box-shadow:         -2px 2px 5px 2px #ccc;
+		background-color: rgba(0, 0, 255, 0.25);
+	}
+	
+	.leftcontent{	
+		position: absolute;
+		top: 200px;
+		width:100%;
+		padding-right:5%;
+		-webkit-box-shadow: -2px 2px 5px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+		-moz-box-shadow:    -2px 2px 5px 2px #ccc;  /* Firefox 3.5 - 3.6 */
+		box-shadow:         -2px 2px 5px 2px #ccc;
+		background-color: rgba(0, 255, 0, 0.25);
+	}
 }
 
-.rightcontent{
-	float:left; 
-	width:45%;
-	padding-left:5%;
-	-webkit-box-shadow: -2px 2px 5px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-	-moz-box-shadow:    -2px 2px 5px 2px #ccc;  /* Firefox 3.5 - 3.6 */
-	box-shadow:         -2px 2px 5px 2px #ccc;
+@media only screen and (min-width: 426px) {
+	
+	.rightcontent{
+		float:left; 
+		width:45%;
+		padding-left:5%;
+		-webkit-box-shadow: -2px 2px 5px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+		-moz-box-shadow:    -2px 2px 5px 2px #ccc;  /* Firefox 3.5 - 3.6 */
+		box-shadow:         -2px 2px 5px 2px #ccc;
+		background-color: rgba(0, 0, 255, 0.25);
+	}
+	
+	.leftcontent{
+		float:left; 
+		width:45%;
+		padding-right:5%;
+		-webkit-box-shadow: -2px 2px 5px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+		-moz-box-shadow:    -2px 2px 5px 2px #ccc;  /* Firefox 3.5 - 3.6 */
+		box-shadow:         -2px 2px 5px 2px #ccc;
+		background-color: rgba(0, 255, 0, 0.25);
+	}
+	
 }
 
 /*--------------------*/
 /* Radiobutton styles*/
 /*--------------------*/
-.radio-toolbar input[type="radio"] {
+/*.radio-toolbar input[type="radio"] {
 	margin-left: 20px;
 	margin-right: 20px;
 	}
@@ -34,7 +67,8 @@ button, input, table, textarea, p {
     background:Red;
     border:1px solid green;
     padding:2px 10px;
-}
+}*/
+
 
 /*-----------------*/
 /* Text Box styles*/
@@ -167,6 +201,11 @@ button, input, table, textarea, p {
 	font-weight: bold;
 }
 
+.buttonGlyphIcon{
+	padding: 20px 40px;
+	font-size: 2em;
+}
+
 /*-------------------*/
 /* Text Area Styles */
 /*-----------------*/
@@ -260,3 +299,28 @@ button, input, table, textarea, p {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
+
+/*-------------------*/
+/* Drop Down Styles */
+/*-----------------*/
+
+.dropdown {
+	margin-top: 10px;
+	font-weight: bold;
+}
+
+/*
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+	color: #000000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}*/
