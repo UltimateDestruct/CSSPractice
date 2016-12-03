@@ -2,13 +2,6 @@
 
 - Refactor the javascript to have a smaller, better designed function. Right now there is a lot of copy/pasting that could be solved by a better function.
 
-- Add more button styles: 
---button with glyphicon in it
+- need to make Press Me red button go down on press
 
-- Add styles for text: 
---rainbow font where each letter is a different color of the rainbow (split rainbow), make sure to give an interesting font
-
-- Apply style to drop downs so that they don't look so plain
-
-- Make page reactive so that if there is not room on the right side for the drop-downs, that they shift over to the top and it becomes the top area instead of the right area?
--- Basically just reactive web design???
+- reprogram the page to use bootstrap style button drop downs
